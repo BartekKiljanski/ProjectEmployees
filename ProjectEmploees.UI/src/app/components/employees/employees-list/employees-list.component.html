@@ -1,0 +1,30 @@
+<div class="container my-5">
+    <h1 class="mb-3">Pracownicy</h1>
+
+
+    <table class="table" *ngIf="employees && employees.length > 0">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Imię i Nazwisko</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Zarobki</th>
+                <th>Dział</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let employee of employees">
+                <td>{{ employee.id}}</td>
+                <td>{{ employee.name}}</td>
+                <td>{{ employee.email}}</td>
+                <td>{{ employee.phone}}</td>
+                <td>{{ employee.salary}}</td>
+                <td>{{ employee.department}}</td>
+                <td><a [routerLink]="['/employees', 'edit', employee.id]">Edytuj</a></td>
+
+            </tr>
+        </tbody>
+    </table>
+    <p *ngIf="!employees || employees.length <= 0">Nie znaleziono pracowników</p>
+</div>
